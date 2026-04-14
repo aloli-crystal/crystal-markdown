@@ -1,0 +1,12 @@
+/docs/api/
+/lib/
+/bin/
+!/bin/crystal-markdown
+/.shards/
+*.dwarf
+
+# Editor files
+*.swp
+*~
+.idea/
+.vscode/

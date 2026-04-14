@@ -1,0 +1,129 @@
+= Crystal Markdown
+:source-highlighter: rouge
+:toc: preamble
+
+Convertisseur Markdown universel pour Crystal.
+Enchaîne https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] avec l'écosystème https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] pour convertir du Markdown en PDF, EPUB, HTML et présentations reveal.js.
+
+== Fonctionnement
+
+Crystal Markdown utilise un pipeline en deux étapes :
+
+. **Markdown -> AsciiDoc** via `crystal-kramdown-asciidoc`
+. **AsciiDoc -> Format cible** via l'écosystème `crystal-asciidoctor`
+
+Cette approche exploite toute la puissance d'AsciiDoc comme représentation intermédiaire, donnant accès à l'ensemble de l'outillage Asciidoctor à partir d'une entrée Markdown simple.
+
+[source,text]
+----
+Markdown ──> AsciiDoc ──> HTML
+                      ──> PDF
+                      ──> EPUB
+----
+
+== Installation
+
+Ajoutez la dépendance dans votre `shard.yml` :
+
+[source,yaml]
+----
+dependencies:
+  crystal-markdown:
+    github: aloli-crystal/crystal-markdown
+    version: "~> 0.1"
+----
+
+Puis exécutez :
+
+[source,bash]
+----
+shards install
+----
+
+== Utilisation
+
+=== API Crystal
+
+[source,crystal]
+----
+require "crystal-markdown"
+
+# Markdown vers HTML (fragment)
+html = CrystalMarkdown.to_html("# Bonjour\n\nCeci est en **gras**.")
+
+# Markdown vers document HTML complet
+full_html = CrystalMarkdown.to_html_standalone("# Bonjour\n\nContenu.")
+
+# Markdown vers AsciiDoc
+adoc = CrystalMarkdown.to_asciidoc("# Titre\n\n- élément un\n- élément deux")
+
+# Markdown vers fichier PDF
+CrystalMarkdown.to_pdf_file("# Rapport\n\nContenu ici.", "rapport.pdf")
+
+# Markdown vers octets PDF
+bytes = CrystalMarkdown.to_pdf("# Rapport\n\nContenu ici.")
+
+# Markdown vers fichier EPUB
+CrystalMarkdown.to_epub_file("# Livre\n\nContenu du chapitre.", "livre.epub")
+
+# Markdown vers octets EPUB
+bytes = CrystalMarkdown.to_epub("# Livre\n\nContenu du chapitre.")
+----
+
+=== Ligne de commande
+
+[source,bash]
+----
+# Convertir en HTML (par défaut)
+crystal-markdown document.md
+
+# Convertir en PDF
+crystal-markdown document.md --to pdf
+
+# Convertir en EPUB
+crystal-markdown document.md --to epub
+
+# Convertir en AsciiDoc
+crystal-markdown document.md --to asciidoc
+
+# Spécifier le fichier de sortie
+crystal-markdown document.md --to pdf -o sortie.pdf
+
+# Générer et convertir un document d'exemple
+crystal-markdown --sample --to pdf -o exemple.pdf
+----
+
+== Formats supportés
+
+[cols="1,1,2"]
+|===
+| Format | Extension | Backend
+
+| HTML
+| `.html`
+| crystal-asciidoctor
+
+| PDF
+| `.pdf`
+| crystal-asciidoctor-pdf
+
+| EPUB
+| `.epub`
+| crystal-asciidoctor-epub3
+
+| AsciiDoc
+| `.adoc`
+| crystal-kramdown-asciidoc
+|===
+
+== Dépendances
+
+* https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] -- Convertisseur Markdown vers AsciiDoc
+* https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] -- Parseur AsciiDoc et convertisseur HTML
+* https://github.com/aloli-crystal/crystal-asciidoctor-pdf[crystal-asciidoctor-pdf] -- Convertisseur AsciiDoc vers PDF
+* https://github.com/aloli-crystal/crystal-asciidoctor-epub3[crystal-asciidoctor-epub3] -- Convertisseur AsciiDoc vers EPUB
+* https://github.com/aloli-crystal/crystal-rouge[crystal-rouge] -- Coloration syntaxique
+
+== Licence
+
+MIT -- voir link:LICENSE[LICENSE].

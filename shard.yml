@@ -1,0 +1,29 @@
+name: crystal-markdown
+version: 0.1.0
+description: |
+  Universal Markdown converter for Crystal.
+  Convert Markdown to PDF, EPUB, HTML, and reveal.js presentations.
+  Chains crystal-kramdown-asciidoc with the crystal-asciidoctor ecosystem.
+authors:
+  - Philippe Nénert <philippe@aloli.fr>
+license: MIT
+dependencies:
+  crystal-kramdown-asciidoc:
+    github: aloli-crystal/crystal-kramdown-asciidoc
+    branch: production
+  crystal-asciidoctor:
+    github: aloli-crystal/crystal-asciidoctor
+    version: "~> 2.0"
+  crystal-asciidoctor-pdf:
+    github: aloli-crystal/crystal-asciidoctor-pdf
+    version: "~> 2.3"
+  crystal-asciidoctor-epub3:
+    github: aloli-crystal/crystal-asciidoctor-epub3
+    branch: production
+  crystal-rouge:
+    github: aloli-crystal/crystal-rouge
+    version: "~> 4.7"
+crystal: ">= 1.19.0"
+targets:
+  crystal-markdown:
+    main: bin/crystal-markdown

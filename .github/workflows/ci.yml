@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main, production]
+  pull_request:
+    branches: [main, production]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        crystal-version: ["1.19.0", "latest"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+        with:
+          crystal: ${{ matrix.crystal-version }}
+
+      - name: Install dependencies
+        run: shards install
+
+      - name: Run tests
+        run: crystal spec
+
+      - name: Check formatting
+        run: crystal tool format --check
+
+      - name: Build CLI
+        run: crystal build bin/crystal-markdown -o /dev/null

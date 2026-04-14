@@ -1,0 +1,89 @@
+require "../src/crystal_markdown"
+require "option_parser"
+
+format = "html"
+output_file : String? = nil
+show_sample = false
+
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: crystal-markdown [options] FILE"
+  opts.separator ""
+  opts.separator "Convert Markdown to PDF, EPUB, HTML, or AsciiDoc."
+  opts.separator ""
+  opts.separator "Options:"
+
+  opts.on("--to FORMAT", "Output format: html (default), pdf, epub, asciidoc") do |f|
+    format = f.downcase
+  end
+
+  opts.on("-o FILE", "--output FILE", "Output file (default: input.FORMAT)") do |f|
+    output_file = f
+  end
+
+  opts.on("--sample", "Generate and convert a sample Markdown document") do
+    show_sample = true
+  end
+
+  opts.on("-v", "--version", "Show version") do
+    puts "crystal-markdown #{CrystalMarkdown::VERSION}"
+    exit
+  end
+
+  opts.on("-h", "--help", "Show this help") do
+    puts opts
+    exit
+  end
+end
+
+parser.parse
+
+if show_sample
+  markdown = CrystalMarkdown.sample_markdown
+  base = "sample"
+else
+  if ARGV.empty?
+    STDERR.puts "Error: no input file specified."
+    STDERR.puts ""
+    STDERR.puts parser
+    exit 1
+  end
+
+  input_file = ARGV[0]
+  unless File.exists?(input_file)
+    STDERR.puts "Error: file not found: #{input_file}"
+    exit 1
+  end
+
+  markdown = File.read(input_file)
+  base = input_file
+end
+
+# Determine output file name
+ext = case format
+      when "pdf"      then ".pdf"
+      when "epub"     then ".epub"
+      when "asciidoc" then ".adoc"
+      else                 ".html"
+      end
+
+out = output_file || "#{base}#{ext}"
+
+case format
+when "html"
+  result = CrystalMarkdown.to_html_standalone(markdown)
+  File.write(out, result)
+  puts "Written: #{out}"
+when "pdf"
+  CrystalMarkdown.to_pdf_file(markdown, out)
+  puts "Written: #{out}"
+when "epub"
+  CrystalMarkdown.to_epub_file(markdown, out)
+  puts "Written: #{out}"
+when "asciidoc"
+  result = CrystalMarkdown.to_asciidoc(markdown)
+  File.write(out, result)
+  puts "Written: #{out}"
+else
+  STDERR.puts "Error: unknown format '#{format}'. Use html, pdf, epub, or asciidoc."
+  exit 1
+end
