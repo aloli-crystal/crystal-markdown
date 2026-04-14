@@ -1,0 +1,52 @@
+= Utilisation
+
+== API Crystal
+
+[source,crystal]
+----
+require "crystal-markdown"
+
+# Markdown vers HTML (fragment)
+html = CrystalMarkdown.to_html("# Bonjour\n\nCeci est en **gras**.")
+
+# Markdown vers document HTML complet
+full_html = CrystalMarkdown.to_html_standalone("# Bonjour\n\nContenu.")
+
+# Markdown vers AsciiDoc
+adoc = CrystalMarkdown.to_asciidoc("# Titre\n\n- element un\n- element deux")
+
+# Markdown vers fichier PDF
+CrystalMarkdown.to_pdf_file("# Rapport\n\nContenu ici.", "rapport.pdf")
+
+# Markdown vers octets PDF
+bytes = CrystalMarkdown.to_pdf("# Rapport\n\nContenu ici.")
+
+# Markdown vers fichier EPUB
+CrystalMarkdown.to_epub_file("# Livre\n\nContenu du chapitre.", "livre.epub")
+
+# Markdown vers octets EPUB
+bytes = CrystalMarkdown.to_epub("# Livre\n\nContenu du chapitre.")
+----
+
+== Ligne de commande
+
+[source,bash]
+----
+# Convertir en HTML (par defaut)
+crystal-markdown document.md
+
+# Convertir en PDF
+crystal-markdown document.md --to pdf
+
+# Convertir en EPUB
+crystal-markdown document.md --to epub
+
+# Convertir en AsciiDoc
+crystal-markdown document.md --to asciidoc
+
+# Specifier le fichier de sortie
+crystal-markdown document.md --to pdf -o sortie.pdf
+
+# Generer et convertir un document d'exemple
+crystal-markdown --sample --to pdf -o exemple.pdf
+----

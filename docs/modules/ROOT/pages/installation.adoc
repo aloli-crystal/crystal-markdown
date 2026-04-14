@@ -1,0 +1,20 @@
+= Installation
+
+== Add the Dependency
+
+Add crystal-markdown to your `shard.yml`:
+
+[source,yaml]
+----
+dependencies:
+  crystal-markdown:
+    github: aloli-crystal/crystal-markdown
+    version: "~> 0.1"
+----
+
+Then run:
+
+[source,bash]
+----
+shards install
+----
