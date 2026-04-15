@@ -66,23 +66,23 @@ ext = case format
       else                 ".html"
       end
 
-out = output_file || "#{base}#{ext}"
+outfile = output_file || "#{base}#{ext}"
 
 case format
 when "html"
   result = CrystalMarkdown.to_html_standalone(markdown)
-  File.write(out, result)
-  puts "Written: #{out}"
+  File.write(outfile, result)
+  puts "Written: #{outfile}"
 when "pdf"
-  CrystalMarkdown.to_pdf_file(markdown, out)
-  puts "Written: #{out}"
+  CrystalMarkdown.to_pdf_file(markdown, outfile)
+  puts "Written: #{outfile}"
 when "epub"
-  CrystalMarkdown.to_epub_file(markdown, out)
-  puts "Written: #{out}"
+  CrystalMarkdown.to_epub_file(markdown, outfile)
+  puts "Written: #{outfile}"
 when "asciidoc"
   result = CrystalMarkdown.to_asciidoc(markdown)
-  File.write(out, result)
-  puts "Written: #{out}"
+  File.write(outfile, result)
+  puts "Written: #{outfile}"
 else
   STDERR.puts "Error: unknown format '#{format}'. Use html, pdf, epub, or asciidoc."
   exit 1
