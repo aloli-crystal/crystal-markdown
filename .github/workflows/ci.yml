@@ -31,5 +31,8 @@ jobs:
       - name: Check formatting
         run: crystal tool format --check
 
+      - name: Run linter
+        run: bin/ameba
+
       - name: Build CLI
         run: crystal build bin/crystal-markdown -o /dev/null

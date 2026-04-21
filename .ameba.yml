@@ -1,0 +1,53 @@
+Naming/QueryBoolMethods:
+  Enabled: false
+
+Naming/BlockParameterName:
+  Enabled: false
+
+Style/NegatedConditionsInUnless:
+  Enabled: false
+
+Style/ParenthesesAroundCondition:
+  Enabled: false
+
+Style/UnlessElse:
+  Enabled: false
+
+Lint/NotNil:
+  Enabled: false
+
+Lint/UselessAssign:
+  Enabled: false
+
+Lint/Formatting:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Lint/UnusedArgument:
+  Enabled: false
+
+Performance/ChainedCallWithNoBang:
+  Enabled: false
+
+Layout/TrailingWhitespace:
+  Enabled: false
+
+Naming/AccessorMethodName:
+  Enabled: false
+
+Style/VerboseBlock:
+  Enabled: false
+
+Lint/UnusedBlockArgument:
+  Enabled: false
+
+Performance/MinMaxAfterMap:
+  Enabled: false
+
+Documentation/DocumentationAdmonition:
+  Enabled: false
+
+Naming/PredicateName:
+  Enabled: false

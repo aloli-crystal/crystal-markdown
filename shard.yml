@@ -23,6 +23,12 @@ dependencies:
   crystal-rouge:
     github: aloli-crystal/crystal-rouge
     version: "~> 4.7"
+
+development_dependencies:
+  ameba:
+    github: crystal-ameba/ameba
+    version: "~> 1.6"
+
 crystal: ">= 1.19.0"
 targets:
   crystal-markdown:
