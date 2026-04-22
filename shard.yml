@@ -1,5 +1,5 @@
 name: crystal-markdown
-version: 0.1.0
+version: 0.1.1
 description: |
   Universal Markdown converter for Crystal.
   Convert Markdown to PDF, EPUB, HTML, and reveal.js presentations.

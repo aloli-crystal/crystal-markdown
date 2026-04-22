@@ -1,0 +1,8 @@
+= Journal des modifications
+:toc: left
+:toc-title: Versions
+:toclevels: 2
+
+== v0.1.1 — 2026-04-22
+
+* Ajout du linter *ameba* à la CI avec configuration `.ameba.yml` partagée alignée sur l'écosystème Crystal.
