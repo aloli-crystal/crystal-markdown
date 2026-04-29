@@ -3,6 +3,15 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v0.1.3 — 2026-04-29
+
+=== Modifié
+
+* **Module interne renommé** `CrystalMarkdown` → `Markdown`
+  (convention Aloli : retrait du préfixe `Crystal` sur les modules
+  internes pour s'aligner sur le nouveau nom du shard). Seul le nom
+  du module change ; comportement et chemin `require` inchangés.
+
 == v0.1.2 — 2026-04-29
 
 === Modifié

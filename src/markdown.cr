@@ -3,25 +3,25 @@ require "crystal-asciidoctor"
 require "crystal-asciidoctor-pdf/src/asciidoctor_pdf"
 require "crystal-asciidoctor-epub3"
 
-# CrystalMarkdown is a universal Markdown converter for Crystal.
+# Markdown is a universal Markdown converter for Crystal.
 #
 # It chains crystal-kramdown-asciidoc (Markdown -> AsciiDoc) with the
 # crystal-asciidoctor ecosystem (AsciiDoc -> HTML, PDF, EPUB) to provide
 # a single, unified API for converting Markdown to multiple output formats.
 #
 # ```
-# html = CrystalMarkdown.to_html("# Hello\n\nThis is **bold**.")
-# adoc = CrystalMarkdown.to_asciidoc("# Hello\n\nThis is **bold**.")
-# CrystalMarkdown.to_pdf_file("# Hello", "output.pdf")
-# CrystalMarkdown.to_epub_file("# Hello", "output.epub")
+# html = Markdown.to_html("# Hello\n\nThis is **bold**.")
+# adoc = Markdown.to_asciidoc("# Hello\n\nThis is **bold**.")
+# Markdown.to_pdf_file("# Hello", "output.pdf")
+# Markdown.to_epub_file("# Hello", "output.epub")
 # ```
-module CrystalMarkdown
+module Markdown
   VERSION = "0.1.0"
 
   # Convert Markdown to AsciiDoc (intermediate format).
   #
   # ```
-  # adoc = CrystalMarkdown.to_asciidoc("# Title\n\nParagraph.")
+  # adoc = Markdown.to_asciidoc("# Title\n\nParagraph.")
   # # => "= Title\n\nParagraph."
   # ```
   def self.to_asciidoc(markdown : String) : String
@@ -31,7 +31,7 @@ module CrystalMarkdown
   # Convert Markdown to HTML.
   #
   # ```
-  # html = CrystalMarkdown.to_html("# Title\n\n**Bold** text.")
+  # html = Markdown.to_html("# Title\n\n**Bold** text.")
   # ```
   def self.to_html(markdown : String) : String
     asciidoc = to_asciidoc(markdown)
@@ -41,7 +41,7 @@ module CrystalMarkdown
   # Convert Markdown to a standalone HTML document.
   #
   # ```
-  # html = CrystalMarkdown.to_html_standalone("# Title\n\nContent.")
+  # html = Markdown.to_html_standalone("# Title\n\nContent.")
   # ```
   def self.to_html_standalone(markdown : String) : String
     asciidoc = to_asciidoc(markdown)
@@ -54,7 +54,7 @@ module CrystalMarkdown
   # writes to disk as part of the rendering pipeline.
   #
   # ```
-  # bytes = CrystalMarkdown.to_pdf("# Title\n\nContent.")
+  # bytes = Markdown.to_pdf("# Title\n\nContent.")
   # ```
   def self.to_pdf(markdown : String) : Bytes
     tmpfile = File.tempfile("crystal-markdown", ".pdf")
@@ -69,7 +69,7 @@ module CrystalMarkdown
   # Convert Markdown to PDF and write to the specified file.
   #
   # ```
-  # CrystalMarkdown.to_pdf_file("# Title\n\nContent.", "output.pdf")
+  # Markdown.to_pdf_file("# Title\n\nContent.", "output.pdf")
   # ```
   def self.to_pdf_file(markdown : String, path : String)
     asciidoc = to_asciidoc(markdown)
@@ -82,7 +82,7 @@ module CrystalMarkdown
   # Convert Markdown to EPUB and return the bytes.
   #
   # ```
-  # bytes = CrystalMarkdown.to_epub("# Title\n\nContent.")
+  # bytes = Markdown.to_epub("# Title\n\nContent.")
   # ```
   def self.to_epub(markdown : String) : Bytes
     asciidoc = to_asciidoc(markdown)
@@ -94,7 +94,7 @@ module CrystalMarkdown
   # Convert Markdown to EPUB and write to the specified file.
   #
   # ```
-  # CrystalMarkdown.to_epub_file("# Title\n\nContent.", "output.epub")
+  # Markdown.to_epub_file("# Title\n\nContent.", "output.epub")
   # ```
   def self.to_epub_file(markdown : String, path : String)
     asciidoc = to_asciidoc(markdown)
@@ -120,7 +120,7 @@ module CrystalMarkdown
     ## Code Example
 
     ```crystal
-    html = CrystalMarkdown.to_html("# Hello\\n\\nWorld.")
+    html = Markdown.to_html("# Hello\\n\\nWorld.")
     ```
 
     ## Table
