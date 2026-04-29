@@ -3,6 +3,24 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v0.1.2 — 2026-04-29
+
+=== Modifié
+
+* **Repo GitHub renommé** vers `aloli-crystal/markdown` (convention
+  de nommage Aloli : les créations originales abandonnent le préfixe
+  `crystal-`). Les anciens liens redirigent automatiquement.
+* Champ `name:`, cible de compilation et binaire CLI alignés sur le
+  nouveau nom du repo. Fichier d'entrée renommé
+  `src/crystal_markdown.cr` → `src/markdown.cr`. La cible `main:`
+  pointe désormais sur la source `src/markdown.cr` au lieu du binaire
+  compilé `bin/crystal-markdown`.
+* Toutes les dépendances restent des portages (kramdown-asciidoc,
+  asciidoctor, asciidoctor-pdf, asciidoctor-epub3, rouge) et
+  conservent leur préfixe `crystal-` selon la convention.
+* Le module interne `CrystalMarkdown` et le dossier sont inchangés —
+  nettoyage reporté.
+
 == v0.1.1 — 2026-04-22
 
 * Ajout du linter *ameba* à la CI avec configuration `.ameba.yml` partagée alignée sur l'écosystème Crystal.

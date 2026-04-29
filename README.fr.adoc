@@ -28,8 +28,8 @@ Ajoutez la dépendance dans votre `shard.yml` :
 [source,yaml]
 ----
 dependencies:
-  crystal-markdown:
-    github: aloli-crystal/crystal-markdown
+  markdown:
+    github: aloli-crystal/markdown
     version: "~> 0.1"
 ----
 
@@ -46,7 +46,7 @@ shards install
 
 [source,crystal]
 ----
-require "crystal-markdown"
+require "markdown"
 
 # Markdown vers HTML (fragment)
 html = CrystalMarkdown.to_html("# Bonjour\n\nCeci est en **gras**.")
@@ -75,22 +75,22 @@ bytes = CrystalMarkdown.to_epub("# Livre\n\nContenu du chapitre.")
 [source,bash]
 ----
 # Convertir en HTML (par défaut)
-crystal-markdown document.md
+markdown document.md
 
 # Convertir en PDF
-crystal-markdown document.md --to pdf
+markdown document.md --to pdf
 
 # Convertir en EPUB
-crystal-markdown document.md --to epub
+markdown document.md --to epub
 
 # Convertir en AsciiDoc
-crystal-markdown document.md --to asciidoc
+markdown document.md --to asciidoc
 
 # Spécifier le fichier de sortie
-crystal-markdown document.md --to pdf -o sortie.pdf
+markdown document.md --to pdf -o sortie.pdf
 
 # Générer et convertir un document d'exemple
-crystal-markdown --sample --to pdf -o exemple.pdf
+markdown --sample --to pdf -o exemple.pdf
 ----
 
 == Formats supportés

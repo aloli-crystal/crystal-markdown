@@ -20,8 +20,8 @@ shards:
     git: https://github.com/aloli-crystal/crystal-kramdown-asciidoc.git
     version: 2.1.1+git.commit.0d03a147acd3b493d4b3181b65bd988ce1dd848e
 
-  crystal-pdf:
-    git: https://github.com/aloli-crystal/crystal-pdf.git
+  pdf:
+    git: https://github.com/aloli-crystal/pdf.git
     version: 0.2.0
 
   crystal-rouge:
