@@ -29,10 +29,10 @@ jobs:
         run: crystal spec
 
       - name: Check formatting
-        run: crystal tool format --check
+        run: crystal tool format --check src/ spec/
 
       - name: Run linter
         run: bin/ameba
 
       - name: Build CLI
-        run: crystal build bin/crystal-markdown -o /dev/null
+        run: shards build markdown
