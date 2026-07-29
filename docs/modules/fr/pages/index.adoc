@@ -1,14 +1,14 @@
 = Markdown Universal
 
 Convertisseur Markdown universel pour Crystal.
-Enchaine https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] avec l'ecosysteme https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] pour convertir du Markdown en PDF, EPUB, HTML et presentations reveal.js.
+Enchaine https://github.com/aloli-crystal/kramdown-asciidoc[kramdown-asciidoc] avec l'ecosysteme https://github.com/aloli-crystal/asciicrystal[asciicrystal] pour convertir du Markdown en PDF, EPUB, HTML et presentations reveal.js.
 
 == Fonctionnement
 
 Crystal Markdown utilise un pipeline en deux etapes :
 
-. **Markdown -> AsciiDoc** via `crystal-kramdown-asciidoc`
-. **AsciiDoc -> Format cible** via l'ecosysteme `crystal-asciidoctor`
+. **Markdown -> AsciiDoc** via `kramdown-asciidoc`
+. **AsciiDoc -> Format cible** via l'ecosysteme `asciicrystal`
 
 [source,text]
 ----
@@ -25,19 +25,19 @@ Markdown --> AsciiDoc --> HTML
 
 | HTML
 | `.html`
-| crystal-asciidoctor
+| asciicrystal
 
 | PDF
 | `.pdf`
-| crystal-asciidoctor-pdf
+| asciicrystal-pdf
 
 | EPUB
 | `.epub`
-| crystal-asciidoctor-epub3
+| asciicrystal-epub3
 
 | AsciiDoc
 | `.adoc`
-| crystal-kramdown-asciidoc
+| kramdown-asciidoc
 |===
 
 == Licence

@@ -1,12 +1,12 @@
-require "crystal-kramdown-asciidoc/src/kramdown_asciidoc"
-require "crystal-asciidoctor"
-require "crystal-asciidoctor-pdf/src/asciidoctor_pdf"
-require "crystal-asciidoctor-epub3"
+require "kramdown-asciidoc/src/kramdown_asciidoc"
+require "asciicrystal"
+require "asciicrystal-pdf/src/asciidoctor_pdf"
+require "asciicrystal-epub3"
 
 # Markdown is a universal Markdown converter for Crystal.
 #
-# It chains crystal-kramdown-asciidoc (Markdown -> AsciiDoc) with the
-# crystal-asciidoctor ecosystem (AsciiDoc -> HTML, PDF, EPUB) to provide
+# It chains kramdown-asciidoc (Markdown -> AsciiDoc) with the
+# asciicrystal ecosystem (AsciiDoc -> HTML, PDF, EPUB) to provide
 # a single, unified API for converting Markdown to multiple output formats.
 #
 # ```
@@ -43,7 +43,7 @@ module Markdown
   # ```
   def self.to_html(markdown : String) : String
     asciidoc = to_asciidoc(markdown)
-    Asciidoctor.convert(asciidoc, {"backend" => "html5", "standalone" => "false"})
+    Asciicrystal.convert(asciidoc, {"backend" => "html5", "standalone" => "false"})
   end
 
   # Convert Markdown to a standalone HTML document.
@@ -53,7 +53,7 @@ module Markdown
   # ```
   def self.to_html_standalone(markdown : String) : String
     asciidoc = to_asciidoc(markdown)
-    Asciidoctor.convert(asciidoc, {"backend" => "html5", "standalone" => "true"})
+    Asciicrystal.convert(asciidoc, {"backend" => "html5", "standalone" => "true"})
   end
 
   # Convert Markdown to PDF and return the bytes.
@@ -81,9 +81,9 @@ module Markdown
   # ```
   def self.to_pdf_file(markdown : String, path : String)
     asciidoc = to_asciidoc(markdown)
-    doc = Asciidoctor.load(asciidoc, {"backend" => "pdf", "safe" => "safe"})
+    doc = Asciicrystal.load(asciidoc, {"backend" => "pdf", "safe" => "safe"})
     doc.attributes["outfile"] = File.expand_path(path)
-    converter = doc.converter || AsciidoctorPDF::Converter.new
+    converter = doc.converter || AsciicrystalPDF::Converter.new
     converter.convert(doc)
   end
 
@@ -94,8 +94,8 @@ module Markdown
   # ```
   def self.to_epub(markdown : String) : Bytes
     asciidoc = to_asciidoc(markdown)
-    doc = Asciidoctor.load(asciidoc, {"backend" => "html5", "safe" => "safe"})
-    converter = AsciidoctorEpub::Converter.new
+    doc = Asciicrystal.load(asciidoc, {"backend" => "html5", "safe" => "safe"})
+    converter = AsciicrystalEpub::Converter.new
     converter.convert(doc)
   end
 
@@ -106,8 +106,8 @@ module Markdown
   # ```
   def self.to_epub_file(markdown : String, path : String)
     asciidoc = to_asciidoc(markdown)
-    doc = Asciidoctor.load(asciidoc, {"backend" => "html5", "safe" => "safe"})
-    converter = AsciidoctorEpub::Converter.new
+    doc = Asciicrystal.load(asciidoc, {"backend" => "html5", "safe" => "safe"})
+    converter = AsciicrystalEpub::Converter.new
     converter.convert_to_file(doc, path)
   end
 
@@ -120,10 +120,10 @@ module Markdown
 
     ## Features
 
-    - **PDF** output via crystal-asciidoctor-pdf
-    - **EPUB** output via crystal-asciidoctor-epub3
-    - **HTML** output via crystal-asciidoctor
-    - **AsciiDoc** intermediate format via crystal-kramdown-asciidoc
+    - **PDF** output via asciicrystal-pdf
+    - **EPUB** output via asciicrystal-epub3
+    - **HTML** output via asciicrystal
+    - **AsciiDoc** intermediate format via kramdown-asciidoc
 
     ## Code Example
 
@@ -135,10 +135,10 @@ module Markdown
 
     | Format   | Extension | Library                    |
     |----------|-----------|----------------------------|
-    | HTML     | .html     | crystal-asciidoctor        |
-    | PDF      | .pdf      | crystal-asciidoctor-pdf    |
-    | EPUB     | .epub     | crystal-asciidoctor-epub3  |
-    | AsciiDoc | .adoc     | crystal-kramdown-asciidoc  |
+    | HTML     | .html     | asciicrystal        |
+    | PDF      | .pdf      | asciicrystal-pdf    |
+    | EPUB     | .epub     | asciicrystal-epub3  |
+    | AsciiDoc | .adoc     | kramdown-asciidoc  |
 
     ## Blockquote
 

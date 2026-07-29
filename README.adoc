@@ -3,14 +3,14 @@
 :toc: preamble
 
 Universal Markdown converter for Crystal.
-Chains https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] with the https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] ecosystem to convert Markdown to PDF, EPUB, HTML, and reveal.js presentations.
+Chains https://github.com/aloli-crystal/kramdown-asciidoc[kramdown-asciidoc] with the https://github.com/aloli-crystal/asciicrystal[asciicrystal] ecosystem to convert Markdown to PDF, EPUB, HTML, and reveal.js presentations.
 
 == How It Works
 
 Crystal Markdown uses a two-stage pipeline:
 
-. **Markdown -> AsciiDoc** via `crystal-kramdown-asciidoc`
-. **AsciiDoc -> Target format** via the `crystal-asciidoctor` ecosystem
+. **Markdown -> AsciiDoc** via `kramdown-asciidoc`
+. **AsciiDoc -> Target format** via the `asciicrystal` ecosystem
 
 This approach leverages the full power of AsciiDoc as an intermediate representation, giving access to the entire Asciidoctor toolchain from a simple Markdown input.
 
@@ -101,28 +101,28 @@ markdown --sample --to pdf -o sample.pdf
 
 | HTML
 | `.html`
-| crystal-asciidoctor
+| asciicrystal
 
 | PDF
 | `.pdf`
-| crystal-asciidoctor-pdf
+| asciicrystal-pdf
 
 | EPUB
 | `.epub`
-| crystal-asciidoctor-epub3
+| asciicrystal-epub3
 
 | AsciiDoc
 | `.adoc`
-| crystal-kramdown-asciidoc
+| kramdown-asciidoc
 |===
 
 == Dependencies
 
-* https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] -- Markdown to AsciiDoc converter
-* https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] -- AsciiDoc parser and HTML converter
-* https://github.com/aloli-crystal/crystal-asciidoctor-pdf[crystal-asciidoctor-pdf] -- AsciiDoc to PDF converter
-* https://github.com/aloli-crystal/crystal-asciidoctor-epub3[crystal-asciidoctor-epub3] -- AsciiDoc to EPUB converter
-* https://github.com/aloli-crystal/crystal-rouge[crystal-rouge] -- Syntax highlighting
+* https://github.com/aloli-crystal/kramdown-asciidoc[kramdown-asciidoc] -- Markdown to AsciiDoc converter
+* https://github.com/aloli-crystal/asciicrystal[asciicrystal] -- AsciiDoc parser and HTML converter
+* https://github.com/aloli-crystal/asciicrystal-pdf[asciicrystal-pdf] -- AsciiDoc to PDF converter
+* https://github.com/aloli-crystal/asciicrystal-epub3[asciicrystal-epub3] -- AsciiDoc to EPUB converter
+* https://github.com/aloli-crystal/rouge[rouge] -- Syntax highlighting
 
 == License
 

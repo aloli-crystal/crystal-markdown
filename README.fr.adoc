@@ -3,14 +3,14 @@
 :toc: preamble
 
 Convertisseur Markdown universel pour Crystal.
-Enchaîne https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] avec l'écosystème https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] pour convertir du Markdown en PDF, EPUB, HTML et présentations reveal.js.
+Enchaîne https://github.com/aloli-crystal/kramdown-asciidoc[kramdown-asciidoc] avec l'écosystème https://github.com/aloli-crystal/asciicrystal[asciicrystal] pour convertir du Markdown en PDF, EPUB, HTML et présentations reveal.js.
 
 == Fonctionnement
 
 Crystal Markdown utilise un pipeline en deux étapes :
 
-. **Markdown -> AsciiDoc** via `crystal-kramdown-asciidoc`
-. **AsciiDoc -> Format cible** via l'écosystème `crystal-asciidoctor`
+. **Markdown -> AsciiDoc** via `kramdown-asciidoc`
+. **AsciiDoc -> Format cible** via l'écosystème `asciicrystal`
 
 Cette approche exploite toute la puissance d'AsciiDoc comme représentation intermédiaire, donnant accès à l'ensemble de l'outillage Asciidoctor à partir d'une entrée Markdown simple.
 
@@ -101,28 +101,28 @@ markdown --sample --to pdf -o exemple.pdf
 
 | HTML
 | `.html`
-| crystal-asciidoctor
+| asciicrystal
 
 | PDF
 | `.pdf`
-| crystal-asciidoctor-pdf
+| asciicrystal-pdf
 
 | EPUB
 | `.epub`
-| crystal-asciidoctor-epub3
+| asciicrystal-epub3
 
 | AsciiDoc
 | `.adoc`
-| crystal-kramdown-asciidoc
+| kramdown-asciidoc
 |===
 
 == Dépendances
 
-* https://github.com/aloli-crystal/crystal-kramdown-asciidoc[crystal-kramdown-asciidoc] -- Convertisseur Markdown vers AsciiDoc
-* https://github.com/aloli-crystal/crystal-asciidoctor[crystal-asciidoctor] -- Parseur AsciiDoc et convertisseur HTML
-* https://github.com/aloli-crystal/crystal-asciidoctor-pdf[crystal-asciidoctor-pdf] -- Convertisseur AsciiDoc vers PDF
-* https://github.com/aloli-crystal/crystal-asciidoctor-epub3[crystal-asciidoctor-epub3] -- Convertisseur AsciiDoc vers EPUB
-* https://github.com/aloli-crystal/crystal-rouge[crystal-rouge] -- Coloration syntaxique
+* https://github.com/aloli-crystal/kramdown-asciidoc[kramdown-asciidoc] -- Convertisseur Markdown vers AsciiDoc
+* https://github.com/aloli-crystal/asciicrystal[asciicrystal] -- Parseur AsciiDoc et convertisseur HTML
+* https://github.com/aloli-crystal/asciicrystal-pdf[asciicrystal-pdf] -- Convertisseur AsciiDoc vers PDF
+* https://github.com/aloli-crystal/asciicrystal-epub3[asciicrystal-epub3] -- Convertisseur AsciiDoc vers EPUB
+* https://github.com/aloli-crystal/rouge[rouge] -- Coloration syntaxique
 
 == Licence
 

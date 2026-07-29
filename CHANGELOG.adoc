@@ -3,6 +3,17 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v0.1.7 — 2026-07-28
+
+=== Changed
+
+* Rename the ecosystem dependencies (drop the `crystal-` prefix, `doctor`→`crystal`):
+  `crystal-kramdown-asciidoc` → `kramdown-asciidoc`, `crystal-asciidoctor` → `asciicrystal`
+  (`~> 2.0.26.12`), `crystal-asciidoctor-pdf` → `asciicrystal-pdf` (`~> 2.3.24.108`),
+  `crystal-asciidoctor-epub3` → `asciicrystal-epub3`, `crystal-rouge` → `rouge` (`~> 4.7.0.3`).
+* The API calls become `Asciicrystal.convert` / `Asciicrystal.load`. The prose footer
+  "the Asciidoctor ecosystem" is preserved as an upstream reference.
+
 == v0.1.3 — 2026-04-29
 
 === Changed
