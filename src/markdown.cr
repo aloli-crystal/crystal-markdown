@@ -1,6 +1,6 @@
 require "kramdown-asciidoc/src/kramdown_asciidoc"
 require "asciicrystal"
-require "asciicrystal-pdf/src/asciidoctor_pdf"
+require "asciicrystal-pdf/src/asciicrystal_pdf"
 require "asciicrystal-epub3"
 
 # Markdown is a universal Markdown converter for Crystal.

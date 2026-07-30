@@ -1,5 +1,5 @@
 name: markdown
-version: 0.1.7
+version: 0.1.8
 description: |
   Universal Markdown converter for Crystal.
   Convert Markdown to PDF, EPUB, HTML, and reveal.js presentations.
@@ -16,7 +16,7 @@ dependencies:
     version: "~> 2.0.26.12"
   asciicrystal-pdf:
     github: aloli-crystal/asciicrystal-pdf
-    version: "~> 2.3.24.108"
+    version: "~> 2.3.24.109"
   asciicrystal-epub3:
     github: aloli-crystal/asciicrystal-epub3
     branch: production

@@ -3,6 +3,10 @@
 :toc-title: Versions
 :toclevels: 2
 
+== v0.1.8 — 2026-07-29
+
+* Mise à jour des `require` profonds suite au renommage des dossiers internes des extensions asciicrystal (`src/asciidoctor_*` → `src/asciicrystal_*`).
+
 == v0.1.7 — 2026-07-28
 
 === Changed
