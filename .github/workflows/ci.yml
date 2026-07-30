@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        crystal-version: ["1.19.0", "latest"]
+        crystal-version: ["1.19.0", "1.19.1"]
 
     steps:
       - uses: actions/checkout@v4
