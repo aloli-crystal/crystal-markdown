@@ -4,33 +4,29 @@ shards:
     git: https://github.com/crystal-ameba/ameba.git
     version: 1.6.4
 
+  asciicrystal:
+    git: https://github.com/aloli-crystal/asciicrystal.git
+    version: 2.0.26.13
+
+  asciicrystal-epub3:
+    git: https://github.com/aloli-crystal/asciicrystal-epub3.git
+    version: 2.3.0.7+git.commit.0627fc9bd130df685d604a6527718a605bc71ae8
+
+  asciicrystal-pdf:
+    git: https://github.com/aloli-crystal/asciicrystal-pdf.git
+    version: 2.3.24.109
+
   country-flags:
     git: https://github.com/aloli-crystal/country-flags.git
     version: 0.1.5
 
-  crystal-asciidoctor:
-    git: https://github.com/aloli-crystal/crystal-asciidoctor.git
-    version: 2.0.26.9
-
-  crystal-asciidoctor-epub3:
-    git: https://github.com/aloli-crystal/crystal-asciidoctor-epub3.git
-    version: 2.3.0.4+git.commit.0b1a4e99a2b0f19f679516a0a6a9478f89632f18
-
-  crystal-asciidoctor-pdf:
-    git: https://github.com/aloli-crystal/crystal-asciidoctor-pdf.git
-    version: 2.3.24.98
-
-  crystal-kramdown-asciidoc:
-    git: https://github.com/aloli-crystal/crystal-kramdown-asciidoc.git
-    version: 2.1.1.3+git.commit.0383047895e55eac6afab69373749221364bcf68
-
-  crystal-rouge:
-    git: https://github.com/aloli-crystal/crystal-rouge.git
-    version: 4.7.0.2
-
   emojis:
     git: https://github.com/aloli-crystal/emojis.git
     version: 0.2.5
+
+  kramdown-asciidoc:
+    git: https://github.com/aloli-crystal/kramdown-asciidoc.git
+    version: 2.1.1.4+git.commit.066ec73b674b562343e736b656d63a4d117b8d27
 
   matrix:
     git: https://github.com/exilor/matrix.git
@@ -42,7 +38,11 @@ shards:
 
   pdf:
     git: https://github.com/aloli-crystal/pdf.git
-    version: 1.20.1
+    version: 1.20.2
+
+  rouge:
+    git: https://github.com/aloli-crystal/rouge.git
+    version: 4.7.0.3
 
   stumpy_core:
     git: https://github.com/stumpycr/stumpy_core.git
